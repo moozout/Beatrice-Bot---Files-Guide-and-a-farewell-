@@ -16,7 +16,7 @@ Bot de WhatsApp hecho en Node.js usando [Baileys](https://github.com/WhiskeySock
 
 ## 1. Instalar Termux
 
-1. Descarga el APK de Termux desde este repositorio (sección [Releases](../../releases) o carpeta `/apk`).
+1. Descarga el APK de Termux desde este repositorio (Descarga el F-droid.apk, despues, abre este link [https://f-droid.org/packages/com.termux/] y descarga termux actualizado ) o carpeta `/apk`).
 2. Instálalo en tu celular (puede que Android te pida activar "Instalar apps de orígenes desconocidos").
 3. Ábrelo. Deberías ver una terminal negra con texto verde/blanco.
 
