@@ -45,9 +45,9 @@ try {
 // ─── Configuración ────────────────────────────────────────────────────────────
 const CONFIG = {
   prefix:    "#",
-  ownerJid: "5213222302462@s.whatsapp.net",
-  ownerLid: "137447828627688",
-  ownerName: "MoozOut",
+  ownerJid: "<tunumero>@s.whatsapp.net",
+  ownerLid: "<tuLid>",
+  ownerName: "Owner",
   botName:  "Beatrice (^w^)",
   version:  "¡Kashira!",
 };
