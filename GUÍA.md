@@ -2,6 +2,8 @@
 
 Bot de WhatsApp hecho en Node.js usando [Baileys](https://github.com/WhiskeySockets/Baileys). Incluye descargas (TikTok, YouTube, Facebook, Pinterest), stickers, moderación automática (antilink, antispam, etc.), sistema de perfiles, economía, juegos y más.
 
+100% gratis y sin licencias: no hay comandos de token ni de activación por grupo, todos los grupos pueden usar el bot libremente. Tampoco hay ningún número "owner" fijo en el código — el owner (dueño con todos los permisos) es automáticamente el número de WhatsApp con el que vincules el bot.
+
 >  Este bot funciona en tu propio dispositivo Android usando **Termux**. No necesitas un servidor ni VPS.
 
 ---
@@ -16,7 +18,7 @@ Bot de WhatsApp hecho en Node.js usando [Baileys](https://github.com/WhiskeySock
 
 ## 1. Instalar Termux
 
-1. Descarga el APK de Termux desde este repositorio (Descarga el F-droid.apk, despues, abre este link [https://f-droid.org/packages/com.termux/] y descarga termux actualizado ) o carpeta `/apk`).
+1. Descarga el APK de Termux desde este repositorio (sección [Releases](../../releases) o carpeta `/apk`).
 2. Instálalo en tu celular (puede que Android te pida activar "Instalar apps de orígenes desconocidos").
 3. Ábrelo. Deberías ver una terminal negra con texto verde/blanco.
 
@@ -41,7 +43,7 @@ mkdir -p ~/beatrice-bot
 cd ~/beatrice-bot
 ```
 
-Coloca aquí el archivo `index.js` (debes modificar el jid y lid del index, se puede hacer desde termux facil) que descargaste de este repositorio. Puedes usar una app de administrador de archivos para copiarlo a `~/storage/downloads` y luego moverlo, o clonarlo directo con `git` (ver paso siguiente).
+Coloca aquí el archivo `index.js` (y `package.json` si lo incluyes) que descargaste de este repositorio. Puedes usar una app de administrador de archivos para copiarlo a `~/storage/downloads` y luego moverlo, o clonarlo directo con `git` (ver paso siguiente).
 
 ### Opción alterna: clonar el repo directo con git
 ```bash
@@ -52,7 +54,42 @@ cd ~/beatrice-bot
 
 ---
 
-##  4. Instalar todo lo necesario (un solo comando)
+## 4. Agregar la carpeta `gifs/`
+
+El bot necesita estos videos para funcionar bien (comandos de la categoría **Juegos** y el video de error genérico). Deben ir dentro de una carpeta llamada `gifs/`, al mismo nivel que `index.js`:
+
+```
+tu-repo/
+├── index.js
+└── gifs/
+    ├── ship.mp4
+    ├── vs.mp4
+    ├── mejor.mp4
+    ├── rata.mp4
+    ├── simp.mp4
+    ├── iq.mp4
+    ├── gay.mp4
+    ├── lesbian.mp4
+    ├── bisexual.mp4
+    ├── freaky.mp4
+    ├── otaku.mp4
+    ├── funny.mp4
+    └── error.mp4
+```
+
+Créala así dentro de la carpeta del bot:
+
+```bash
+mkdir -p gifs
+```
+
+Y copia ahí los 13 archivos `.mp4` (los mismos que vienen en este repositorio). Si a algún comando le falta su video, el bot simplemente responde solo con texto (no se cae), pero para la experiencia completa asegúrate de tenerlos todos.
+
+> Nota: el video `preg.mp4` (categoría Perfil, comando `#preg`) **no** va en `gifs/`, ese se queda en la raíz junto a `index.js`.
+
+---
+
+## 5. Instalar todo lo necesario (un solo comando)
 
 Parado dentro de la carpeta del bot (`~/beatrice-bot`), corre:
 
@@ -75,13 +112,15 @@ Esto instala:
 
 ---
 
-## ▶ 5. Correr el bot
+## 6. Correr el bot
 
 ```bash
 node index.js
 ```
 
 La primera vez te va a pedir vincular tu WhatsApp (escaneando un QR o con un código de emparejamiento). Una vez vinculado, la sesión queda guardada en la carpeta y no tendrás que volver a escanear (a menos que borres esa carpeta o cierres sesión desde el celular).
+
+**Importante:** el número que vincules aquí se convierte automáticamente en el **owner** del bot (acceso total a todos los comandos), así que usa el número que quieras que tenga el control.
 
 ### Mantenerlo corriendo sin que se apague la pantalla
 ```bash
@@ -91,7 +130,7 @@ node index.js
 
 ---
 
-## 6. Reiniciar el bot en el futuro
+## 7. Reiniciar el bot en el futuro
 
 Cada vez que quieras volver a prenderlo (sin reinstalar nada), solo necesitas:
 
@@ -108,6 +147,7 @@ node index.js
 - **Error al instalar `@whiskeysockets/baileys`**: prueba `npm install github:WhiskeySockets/Baileys`.
 - **El bot se cierra al bloquear pantalla**: usa `termux-wake-lock` antes de `node index.js`, y desactiva la optimización de batería de Termux en Ajustes de Android.
 - **No pide permiso de almacenamiento**: ve a Ajustes de Android > Apps > Termux > Permisos > Almacenamiento, actívalo manualmente y vuelve a correr `termux-setup-storage`.
+- **Los comandos de Juegos (#ship, #vs, #gay, etc.) no mandan video**: revisa que la carpeta `gifs/` exista junto a `index.js` y que los archivos `.mp4` tengan exactamente esos nombres.
 
 ---
 
@@ -120,8 +160,3 @@ Este bot usa una librería no oficial (Baileys) para conectarse a WhatsApp. Usar
 ## Créditos
 
 Bot creado por **MoozOut**. Basado en [Baileys](https://github.com/WhiskeySockets/Baileys).
-
-Unica forma de contacto: 
-Discord: .mooz_.
-WhatsApp: 523223783244
-Por la cuenta actual de Github.
