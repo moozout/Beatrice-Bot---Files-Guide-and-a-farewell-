@@ -41,7 +41,7 @@ mkdir -p ~/beatrice-bot
 cd ~/beatrice-bot
 ```
 
-Coloca aquí el archivo `index.js` (y `package.json` si lo incluyes) que descargaste de este repositorio. Puedes usar una app de administrador de archivos para copiarlo a `~/storage/downloads` y luego moverlo, o clonarlo directo con `git` (ver paso siguiente).
+Coloca aquí el archivo `index.js` (debes modificar el jid y lid del index, se puede hacer desde termux facil) que descargaste de este repositorio. Puedes usar una app de administrador de archivos para copiarlo a `~/storage/downloads` y luego moverlo, o clonarlo directo con `git` (ver paso siguiente).
 
 ### Opción alterna: clonar el repo directo con git
 ```bash
